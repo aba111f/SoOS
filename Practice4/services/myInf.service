@@ -1,0 +1,20 @@
+[Unit]
+Description=INFINITY service
+After=network.target
+
+[Service]
+ExecStart=/bin/bash -c "/home/aba/SoOS/Practice4/sh_practice4/infinite_py.sh"
+Restart=always
+StartLimitIntervalSec=0
+User=aba
+Group=aba
+WorkingDirectory=/home/aba/SoOS/Practice4/sh_practice4
+StandardOutput=journal
+StandardError=journal
+Slice=myGroup.slice
+MemoryMax=50M
+CPUQuota=50%
+
+
+[Install]
+WantedBy=multi-user.target
